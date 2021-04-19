@@ -1,0 +1,2 @@
+class ExceptionQuikClient(Exception):
+    pass

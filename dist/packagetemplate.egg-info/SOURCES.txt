@@ -1,0 +1,10 @@
+README.md
+setup.py
+dist/packagetemplate.egg-info/PKG-INFO
+dist/packagetemplate.egg-info/SOURCES.txt
+dist/packagetemplate.egg-info/dependency_links.txt
+dist/packagetemplate.egg-info/top_level.txt
+src/quikclient/ExceptionQuikClient.py
+src/quikclient/QuikClient.py
+src/quikclient/__init__.py
+test/test_client.py
