@@ -21,7 +21,7 @@ class QuikClient:
         self.port = port
         self.unicode = unicode
         self.buf_size = buff_size
-        if not self.is_conected():
+        if not self.is_connected():
             raise ExceptionQuikClient('Ошибка соединения с QUIK')
 
     @staticmethod
@@ -54,7 +54,7 @@ class QuikClient:
             raise ExceptionQuikClient('Ошибка соединения или передачи данных с QUIK') from ex
         return result
 
-    def is_conected(self):
+    def is_connected(self):
         try:
             connected_flag = self._get_cmd('is_connected()')
         except Exception:
@@ -93,7 +93,6 @@ class QuikClient:
         Информация по инсnрументу и коду:
 
         Пример результатов:
-
             {'isin_code': 'RU0007661625', 'bsid': '', 'cusip_code': '', 'stock_code': '', 'couponvalue': 0,
               'sell_leg_classcode': '', 'second_currcode': '', 'sell_leg_seccode': '', 'buy_leg_classcode': '',
               'base_active_classcode': '', 'class_code': 'TQBR', 'face_value': 5, 'buy_mat_date': 0,
@@ -117,7 +116,6 @@ class QuikClient:
 
         Пример использования:
          get_candle_data('TQBR', 'GAZP', 'INTERVAL_M1')
-
         """
         data = self._get_cmd('get_candle_data("' + class_name + '","' + class_code + '",' + interval + ')')
         df = pd.DataFrame(data)

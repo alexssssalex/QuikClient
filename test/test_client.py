@@ -5,7 +5,7 @@ from src.quikclient.ExceptionQuikClient import ExceptionQuikClient
 classes = ['CROSSRATE', 'SMAL', 'INDX', 'TQBR', 'CETS', 'SPBFUT', 'RTSIDX', 'SPBOPT']
 
 
-def test_error_no_conection_with_init():
+def test_error_no_connection_with_init():
     with pytest.raises(ExceptionQuikClient):
         QuikClient(port=1111)
 
