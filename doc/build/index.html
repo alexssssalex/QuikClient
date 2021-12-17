@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Документация проекта &#8212; quikclient 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">quikclient 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Документация проекта</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>Документация проекта<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="id2">
+<h1>Описание структура проекта<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Папка</p></th>
+<th class="head"><p>Содержание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dist</p></td>
+<td><p>папка для компилирования пакета</p></td>
+</tr>
+<tr class="row-odd"><td><p>docs</p></td>
+<td><p>папка документация</p></td>
+</tr>
+<tr class="row-even"><td><p>jupyter</p></td>
+<td><p>файлы jupyter</p></td>
+</tr>
+<tr class="row-odd"><td><p>test</p></td>
+<td><p>тестирование</p></td>
+</tr>
+<tr class="row-even"><td><p>src</p></td>
+<td><p>код</p></td>
+</tr>
+<tr class="row-odd"><td><p>uml</p></td>
+<td><p>UML диаграммы</p></td>
+</tr>
+<tr class="row-even"><td><p>setup.py</p></td>
+<td><p>файл опций сборки пакета</p></td>
+</tr>
+<tr class="row-odd"><td><p>make_dist.bat</p></td>
+<td><p>файл команд сборки проекта</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-quikclient.QuikClient">
+<span id="api"></span><h1>Описание API<a class="headerlink" href="#module-quikclient.QuikClient" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">quikclient.QuikClient.</span></span><span class="sig-name descname"><span class="pre">QuikClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3587</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unicode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cp1251'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buff_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Класс обеспечивающий связь с QUIK, передает команды и получает данные из QUIK,
+в случае ошибки генерит ExceptionQuikClient;</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient.get_candle_data">
+<span class="sig-name descname"><span class="pre">get_candle_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pandas.core.frame.DataFrame</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient.get_candle_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Получение данные свечей.</dt><dd><dl class="simple">
+<dt>interval - одно из значений [INTERVAL_M1, INTERVAL_M2,…,INTERVAL_M6,INTERVAL_M10,</dt><dd><p>INTERVAL_M15, INTERVAL_M20, INTERVAL_M30,INTERVAL_H1, INTERVAL_H2,INTERVAL_H4,
+INTERVAL_D1,  INTERVAL_W1, INTERVAL_MN1]</p>
+</dd>
+</dl>
+</dd>
+<dt>Пример использования:</dt><dd><p>get_candle_data(‘TQBR’, ‘GAZP’, ‘INTERVAL_M1’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient.get_class_code_info">
+<span class="sig-name descname"><span class="pre">get_class_code_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient.get_class_code_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Информация по инсnрументу и коду:</p>
+<dl class="simple">
+<dt>Пример результатов:</dt><dd><dl class="simple">
+<dt>{‘isin_code’: ‘RU0007661625’, ‘bsid’: ‘’, ‘cusip_code’: ‘’, ‘stock_code’: ‘’, ‘couponvalue’: 0,</dt><dd><p>‘sell_leg_classcode’: ‘’, ‘second_currcode’: ‘’, ‘sell_leg_seccode’: ‘’, ‘buy_leg_classcode’: ‘’,
+‘base_active_classcode’: ‘’, ‘class_code’: ‘TQBR’, ‘face_value’: 5, ‘buy_mat_date’: 0,
+‘option_strike’: 0, ‘name’: ‘“Газпром” (ПАО) ао’, ‘qty_multiplier’: 1, ‘step_price_currency’: ‘’,
+‘sedol_code’: ‘’, ‘mat_date’: 20210128, ‘cfi_code’: ‘’, ‘face_unit’: ‘SUR’, ‘code’: ‘GAZP’,
+‘ric_code’: ‘’, ‘short_name’: ‘ГАЗПРОМ ао’, ‘buybackdate’: 0, ‘list_level’: 1, ‘qty_scale’: 0,
+‘yieldatprevwaprice’: 0, ‘buy_leg_seccode’: ‘’, ‘regnumber’: ‘1-02-00028-A’,
+‘min_price_step’: 0.01, ‘trade_currency’: ‘SUR’, ‘second_curr_qty_scale’: 0,
+‘first_curr_qty_scale’: 0, ‘base_active_seccode’: ‘’, ‘sell_mat_date’: 0, ‘accruedint’: 0,
+‘stock_name’: ‘’, ‘buybackprice’: 0, ‘lot_size’: 10, ‘nextcoupon’: 0, ‘couponperiod’: 0,
+‘scale’: 2, ‘sec_code’: ‘GAZP’, ‘class_name’: ‘МБ ФР: Т+ Акции и ДР’, ‘first_currcode’: ‘’}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient.get_class_codes">
+<span class="sig-name descname"><span class="pre">get_class_codes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient.get_class_codes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Вернуть список кодов по классу.</p>
+<dl class="simple">
+<dt>Пример результата:</dt><dd><p>[‘ABRD’, ‘AFKS’, ‘AFLT’, ‘AGRO’, ‘AKRN’, ‘ALBK’, ‘ALNU’, ‘ALRS’, ‘AMEZ’, ‘APTK’, ‘GAZP’, ‘SBER’]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient.get_class_info">
+<span class="sig-name descname"><span class="pre">get_class_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient.get_class_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Вернуть информацию по классу.</p>
+<dl class="simple">
+<dt>Пример результата:</dt><dd><p>{‘firmid’: ‘MC0139600000’, ‘name’: ‘МБ ФР: Т+ Акции и ДР’, ‘code’: ‘TQBR’, ‘npars’: 64, ‘nsecs’: 260}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quikclient.QuikClient.QuikClient.get_classes_list">
+<span class="sig-name descname"><span class="pre">get_classes_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#quikclient.QuikClient.QuikClient.get_classes_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Получить список класcов интсрумента (акции, биржи, и т.д).</p>
+<dl class="simple">
+<dt>Пример результата:</dt><dd><p>[“SPBFUT”,”RTSIDX”,”SPBOPT”,”CROSSRATE”,”CETS”,”SMAL”,”INDX”,”TQBR”,”TQQI”,”TQDE”]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Документация проекта</a></li>
+<li><a class="reference internal" href="#id2">Описание структура проекта</a></li>
+<li><a class="reference internal" href="#module-quikclient.QuikClient">Описание API</a><ul>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">quikclient 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Документация проекта</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Alexander Sokolov.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

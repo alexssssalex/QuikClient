@@ -30,7 +30,6 @@ def test_get_classes_info():
 def test_get_class_codes():
     c = QuikClient()
     for cls in classes:
-        cls = 'CROSSRATE'
         codes = c.get_class_codes(cls)
         assert isinstance(codes, list)
 
@@ -38,7 +37,9 @@ def test_get_class_codes():
 def test_get_class_code_info():
     c = QuikClient()
     for cls in classes:
-        for code in c.get_class_codes(cls):
+        codes = c.get_class_codes(cls)
+        # restrict number request
+        for code in codes[:10]:
             info = c.get_class_code_info(cls, code)
             assert info is None or isinstance(info, dict)
 
