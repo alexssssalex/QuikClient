@@ -1,1 +1,0 @@
-python setup.py sdist -d dist egg_info --egg-base dist
