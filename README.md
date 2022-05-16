@@ -14,3 +14,7 @@
 
 ## Uninstall packet
 * в Anaconda выполнить команду:  *pip uninstall <имя_пакета>>*
+
+
+# Полезные ссылки
+* описание основных библиотек для Lua5.4 https://forum.quik.ru/forum10/topic6902/
