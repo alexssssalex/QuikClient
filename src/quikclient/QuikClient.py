@@ -70,6 +70,30 @@ class QuikClient:
         """
         return self._get_cmd('get_classes_list()')
 
+    def get_orders(self, type_order):
+        """
+        Получить таблицы заявок:
+        type_order:
+            ORDERS Заявки
+            STOP_ORDERS Стоп заявки
+            TRADES Сделки
+            ALL_TRADES Обезличенные сделки
+            MONEY_LIMITS Позиции по денежным средствам
+            DEPO_LIMITS Позиции по инструментам
+            FUTURES_CLIENT_HOLDINGS Позиции по клиентским счетам (фьючерсы)
+            FUTURES_CLIENT_LIMITS Ограничения по клиентским счетам (фьючерсы)
+            NEG_DEALS Таблица заявок на внебиржевые сделки
+            NEGOTIATION_TRADES  Таблица сделок для исполнения
+            NEG_DEAL_REPORTS Таблица заявок-отчетов на сделки РПС
+            POSITIONS Позиции участника по деньгам
+            FIRM_HOLDING  Позиции участника по инструментам
+            ACCOUNT_BALANCE  Позиции участника по торговым счетам
+            OWN Таблица, создаваемая при расчете программы
+        """
+        return pd.DataFrame(self._get_cmd('get_order("' + type_order+'")'))
+
+
+
     def get_class_info(self, class_name: str) -> dict:
         """
         Вернуть информацию по классу.
