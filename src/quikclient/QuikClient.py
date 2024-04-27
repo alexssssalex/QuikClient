@@ -1,7 +1,11 @@
 import json
 import socket
+
+import numpy as np
+
 from .ExceptionQuikClient import ExceptionQuikClient
 import pandas as pd
+
 
 # host = '127.0.0.1'
 # port = 3587
@@ -90,9 +94,48 @@ class QuikClient:
             ACCOUNT_BALANCE  Позиции участника по торговым счетам
             OWN Таблица, создаваемая при расчете программы
         """
-        return pd.DataFrame(self._get_cmd('get_order("' + type_order+'")'))
+        return pd.DataFrame(self._get_cmd('get_order("' + type_order + '")'))
 
+    def get_positions(self) -> pd.DataFrame:
+        """
+        Получить позиции по инструментам:
 
+        Returns
+        -------
+                sec_code  wa_position_price  currentbal
+                CHMF        1872.880000        50.0
+                MOEX         229.290000       200.0
+                PMSB         277.500000       200.0
+                SBER         308.610000        70.0
+        SU26227RMFS7          97.554333       270.0
+                VTBR           0.023440     10000.0
+        """
+        df = self.get_orders("DEPO_LIMITS")
+        df = df[(df['limit_kind'] == 365) & (df['currentbal'] > 0)]
+        return df[['sec_code', 'wa_position_price', 'currentbal']]
+
+    def get_trades(self) -> pd.DataFrame:
+        """
+        Получить сделки
+        Returns
+        -------
+        sec_code,trade_num,   value,  price,     datetime,            type_order,position
+        SNGS,    10219656442,3400.50, 34.005000, 2024-04-27 13:22:01, buy,      100
+        SNGS,    10219659618,3400.50, 34.005000, 2024-04-27 13:22:39, buy,      100
+        SNGS,    10219666694,6801.00, 34.005000, 2024-04-27 13:24:02, sell,     200
+        AFLT,    10219723107,517.60,  51.760000, 2024-04-27 13:33:53, buy,      10
+        AFLT,    10219728511,517.30,  51.730000, 2024-04-27 13:35:04, sell,     10
+        VTBR,    10219915073,235.55,  0.023555,  2024-04-27 14:15:10, buy,      10000
+        VTBR,    10219916391,235.50,  0.023550,  2024-04-27 14:15:33, sell,     10000
+        VTBR,    10220361411,234.40,  0.023440,  2024-04-27 15:45:46, buy,      10000
+
+        """
+        df_raw = self.get_orders("TRADES")
+        df = df_raw[['sec_code', 'trade_num', 'value', 'price', 'datetime']].copy()
+        df['type_order'] = df_raw['flags'].map(
+            lambda x: 'sell' if np.unpackbits(np.uint8(x))[-3] else 'buy')
+        df['position'] = (df_raw['value'] / df_raw['price']).round(0).astype(int)
+        return df
 
     def get_class_info(self, class_name: str) -> dict:
         """
@@ -141,7 +184,8 @@ class QuikClient:
         Пример использования:
          get_candle_data('TQBR', 'GAZP', 'INTERVAL_M1')
         """
-        data = self._get_cmd('get_candle_data("' + class_name + '","' + class_code + '",' + interval + ')')
+        data = self._get_cmd(
+            'get_candle_data("' + class_name + '","' + class_code + '",' + interval + ')')
         df = pd.DataFrame(data)
         if not df.empty:
             df['D'] = pd.to_datetime(df['D'])
